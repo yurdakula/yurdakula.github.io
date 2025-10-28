@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Arda Yurdakul — Visual & Digital Designer</title>
-  <meta name="description" content="Arda Yurdakul — Visual Communication" />
+  <meta name="description" content="Arda Yurdakul — Visual Communication Designer." />
   <link rel="icon" href="favicon.ico" />
   <style>
     :root {
@@ -58,9 +58,9 @@
     .card p{margin:0;color:var(--grayGreen)}
 
     .project-detail .lead{color:var(--grayGreen)}
-    .project-hero{border-radius:8px;overflow:hidden;box-shadow:var(--shadow)}
+    .project-hero{border-radius:8px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:16/10;}
     .auto-gallery{display:grid;gap:12px}
-    .auto-gallery img{width:100%;height:auto;object-fit:cover;border-radius:6px;box-shadow:var(--shadow)}
+    .auto-gallery img{aspect-ratio:16/10;width:100%;height:auto;object-fit:cover;border-radius:6px;box-shadow:var(--shadow)}
 
     .contact .actions{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap}
 
@@ -71,6 +71,7 @@
       .grid{grid-template-columns:repeat(3,1fr)}
       .auto-gallery{grid-template-columns:repeat(3,1fr)}
     }
+  .project-hero img{width:100%;height:100%;object-fit:cover;display:block}
   </style>
 </head>
 <body>
@@ -92,7 +93,7 @@
     <section class="hero" aria-label="Intro">
       <div>
         <h1><span class="hello">HELLO,</span> I am Arda</h1>
-        <p class="role">Visual and Digital Designer</p>
+        <p class="role">Visual Communication Designer</p>
         <p class="blurb">I design websites, visual imagery for clients, social media posts, advertising assets, and user interfaces. My goal is clear communication with strong aesthetics.</p>
         <div class="hero-actions" aria-label="Downloads">
           <a class="btn primary" href="cv.pdf" download>Download CV →</a>

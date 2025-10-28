@@ -3,133 +3,84 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name — Portfolio</title>
-  <meta name="description" content="Portfolio of Your Name — projects, skills, and contact." />
-  <meta property="og:title" content="Your Name — Portfolio" />
-  <meta property="og:description" content="Projects, skills, and contact." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="/og-image.png" />
-  <link rel="icon" href="/favicon.ico" />
+  <title>Arda Yurdakul — Visual & Digital Designer</title>
+  <meta name="description" content="Arda Yurdakul — Visual & Digital Designer. Projects, CV/Portfolio downloads, and contact on a single page." />
+  <link rel="icon" href="favicon.ico" />
   <style>
     :root {
-      --bg: #0b0c10;
-      --bg-soft: #111218;
-      --text: #e6e6e6;
-      --muted: #a3a3a3;
-      --brand: #6ee7b7; /* mint */
-      --brand-ink: #064e3b;
-      --card: #0f1117;
-      --border: #1f2330;
-      --shadow: rgba(0,0,0,.4);
-      --maxw: 1120px;
-      --radius: 18px;
+      --dark: #202020; --orangeRed: #FDC700; --medGray: #6a686c; --beige: #f5f5f5;
+      --brownGray: #4f3e3a; --grayGreen: #97a29f; --brick: #b65741; --coral: #FDC700;
+      --maxw: 1120px; --radius: 12px; --shadow: 0 3px 10px rgba(0,0,0,0.25);
     }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;color:var(--beige);background:var(--dark);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.45}
+    img{max-width:100%;height:auto;display:block}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
 
-    @media (prefers-color-scheme: light) {
-      :root {
-        --bg: #ffffff;
-        --bg-soft: #f6f7fb;
-        --text: #0b0c10;
-        --muted: #535662;
-        --brand: #2563eb; /* blue in light mode */
-        --brand-ink: #dbeafe;
-        --card: #ffffff;
-        --border: #e5e7eb;
-        --shadow: rgba(2,6,23,.08);
-      }
-    }
+    header{position:sticky;top:0;z-index:40;background:var(--orangeRed);box-shadow:var(--shadow);margin-bottom:24px;}
+    .nav{height:76px;display:flex;align-items:center;position:relative;}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:56px;height:56px}
+    .brand span{font-weight:900;letter-spacing:.3px;color:var(--dark)}
+    nav ul{list-style:none;display:flex;gap:24px;margin:0;padding:0; margin-left:auto;}
+    nav a{font-weight:800;color:var(--dark);padding:6px 10px;border-radius:6px;transition:background .2s ease;}
+    nav a:hover{background: rgba(0,0,0,0.15); color: var(--dark);}
+    nav a:focus-visible,.btn:focus-visible{outline:3px solid var(--brick);outline-offset:2px;border-radius:6px}
 
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      color: var(--text);
-      background: radial-gradient(1200px 600px at 80% -10%, var(--brand)/8%, transparent 60%), var(--bg);
-      line-height: 1.6;
-    }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;font-weight:800;border-radius:12px;border:2px solid transparent;text-decoration:none;box-shadow:var(--shadow);transition:transform .2s ease}
+    .btn:hover{transform:translateY(-2px)}
+    .btn.primary{background:var(--coral);color:var(--dark)}
+    .btn.primary:hover{background:var(--brick);color:var(--beige)}
+    .btn.outline{background:var(--dark);border-color:var(--beige);color:var(--beige)}
+    .btn.outline:hover{border-color:var(--coral);color:var(--coral)}
 
-    /* Header */
-    header {
-      position: sticky; top: 0; z-index: 50;
-      backdrop-filter: saturate(180%) blur(10px);
-      background: color-mix(in oklab, var(--bg) 80%, transparent);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav {
-      display: flex; align-items: center; justify-content: space-between; height: 64px;
-    }
-    .logo { font-weight: 800; letter-spacing: .2px; }
-    .logo b { background: linear-gradient(90deg, var(--brand), #a78bfa); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    nav ul { display: flex; gap: 20px; list-style: none; padding: 0; margin: 0; }
-    nav a { color: var(--muted); font-weight: 600; }
-    nav a:hover { color: var(--text); }
-    .menu-btn { display: none; }
+    .hero{display:grid;grid-template-columns:1fr;gap:24px;padding:56px 0 24px}
+    .hero h1{font-size:clamp(28px,6vw,56px);line-height:1.1;margin:0 0 6px}
+    .hero h1 .hello{display:block;font-weight:800;color:var(--coral);font-size:clamp(16px,2.2vw,22px)}
+    .hero p.role{font-size:clamp(16px,2.2vw,22px);margin:0 0 10px;color:var(--grayGreen)}
+    .hero p.blurb{max-width:66ch;margin:0 0 18px;color:var(--beige)}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .hero-media{border-radius:var(--radius);aspect-ratio:16/10;overflow:hidden;background:var(--brownGray);display:grid;place-items:center;box-shadow:var(--shadow)}
+    .hero-media video,.hero-media img{width:100%;height:100%;object-fit:cover;display:block}
 
-    /* Hero */
-    .hero { padding: 72px 0 32px; }
-    .hero-inner { display: grid; gap: 24px; grid-template-columns: 1fr; align-items: center; }
-    .badge { display:inline-flex; align-items:center; gap:8px; font-size: 12px; padding:6px 10px; border:1px solid var(--border); border-radius: 999px; color: var(--muted); }
-    .title { font-size: clamp(32px, 5vw, 56px); line-height: 1.1; margin: 8px 0 12px; font-weight: 900; }
-    .subtitle { color: var(--muted); max-width: 60ch; }
-    .cta { display: flex; gap: 12px; margin-top: 22px; flex-wrap: wrap; }
-    .btn { display:inline-flex; align-items:center; gap:10px; font-weight: 700; padding: 12px 16px; border-radius: 12px; border:1px solid var(--border); box-shadow: 0 6px 24px var(--shadow); }
-    .btn.primary { background: var(--brand); color: var(--brand-ink); border-color: transparent; }
-    .btn.ghost { background: transparent; color: var(--text); }
+    .section{padding:40px 0}
+    .section h2{margin:0 0 10px;color:var(--orangeRed)}
+    .grid{display:grid;grid-template-columns:1fr;gap:18px}
 
-    /* Sections */
-    section { padding: 56px 0; }
-    .section-title { font-size: 14px; text-transform: uppercase; letter-spacing: .18em; color: var(--muted); margin-bottom: 16px; }
-    .h2 { font-size: clamp(24px, 3.6vw, 36px); margin: 0 0 8px; }
-    .lead { color: var(--muted); max-width: 70ch; }
+    .card{border:none;border-radius:0;padding:0;background:transparent;box-shadow:var(--shadow);transition:transform .2s ease}
+    .card:hover{transform:translateY(-4px)}
+    .thumb{aspect-ratio:16/10;border:none;border-radius:0;overflow:hidden}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+    .card .content{padding:12px 0}
+    .card h3{margin:0 0 6px;color:var(--beige)}
+    .card p{margin:0;color:var(--grayGreen)}
 
-    /* Cards */
-    .grid { display: grid; gap: 16px; grid-template-columns: repeat(12, 1fr); }
-    .card { grid-column: span 12; border:1px solid var(--border); background: var(--card); border-radius: var(--radius); padding: 16px; box-shadow: 0 10px 30px var(--shadow); transition: transform .2s ease, box-shadow .2s ease; }
-    .card:hover { transform: translateY(-2px); box-shadow: 0 14px 36px var(--shadow); }
-    .card .thumb { aspect-ratio: 16/9; border-radius: 12px; background: var(--bg-soft); display:flex; align-items:center; justify-content:center; color: var(--muted); font-weight:700; border:1px dashed var(--border); }
-    .card h3 { margin: 12px 0 6px; font-size: 18px; }
-    .card p { margin: 0; color: var(--muted); }
-    .tags { display:flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-    .tag { font-size: 12px; padding: 6px 8px; border-radius: 999px; border:1px solid var(--border); color: var(--muted); }
-    .card .actions { margin-top: 12px; display:flex; gap: 8px; }
+    .project-detail .lead{color:var(--grayGreen)}
+    .project-hero{border-radius:8px;overflow:hidden;box-shadow:var(--shadow)}
+    .auto-gallery{display:grid;gap:12px}
+    .auto-gallery img{width:100%;height:auto;object-fit:cover;border-radius:6px;box-shadow:var(--shadow)}
 
-    /* Skills */
-    .skills { display:grid; gap: 12px; grid-template-columns: repeat(2,1fr); }
-    .skill { border:1px solid var(--border); background: var(--card); border-radius: 12px; padding: 12px; display:flex; align-items:center; justify-content:space-between; }
-    .bar { height: 8px; background: var(--bg-soft); border-radius: 999px; overflow:hidden; width: 60%; margin-left: 12px; border:1px solid var(--border); }
-    .bar > span { display:block; height:100%; background: linear-gradient(90deg, var(--brand), #a78bfa); width: 70%; }
+    .contact .actions{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap}
 
-    /* Contact */
-    .contact { display:grid; gap:16px; grid-template-columns: 1fr; }
-    .contact .card a { text-decoration: underline; }
+    footer{border-top:2px solid var(--orangeRed);padding:26px 0 40px;color:var(--medGray);box-shadow:var(--shadow) inset 0 6px 12px}
 
-    /* Footer */
-    footer { padding: 32px 0 56px; color: var(--muted); border-top: 1px solid var(--border); }
-
-    /* Responsive */
-    @media (min-width: 720px) {
-      .hero-inner { grid-template-columns: 1.2fr .8fr; }
-      .card { grid-column: span 6; }
-      .skills { grid-template-columns: repeat(3,1fr); }
-      .contact { grid-template-columns: 1.2fr .8fr; }
-    }
-    @media (min-width: 1040px) {
-      .card { grid-column: span 4; }
+    @media(min-width:900px){
+      .hero{grid-template-columns:1.2fr .8fr;align-items:center}
+      .grid{grid-template-columns:repeat(3,1fr)}
+      .auto-gallery{grid-template-columns:repeat(3,1fr)}
     }
   </style>
 </head>
 <body>
   <header>
     <div class="container nav">
-      <a class="logo" href="#home" aria-label="Home"><b>YN</b>&nbsp;Your&nbsp;Name</a>
+      <a class="brand" href="#home" style="position:absolute;left:50%;transform:translateX(-50%);"><img src="logo.png" alt="Arda Yurdakul logo" /></a>
       <nav aria-label="Primary">
         <ul>
+          <li><a href="#home">Home</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -137,118 +88,110 @@
   </header>
 
   <main id="home" class="container">
-    <section class="hero">
-      <span class="badge" aria-label="Current role">👋 Available for work</span>
-      <h1 class="title">Hi, I’m <span style="white-space:nowrap">Your Name</span> — I build simple, fast, accessible websites.</h1>
-      <p class="subtitle">I’m a frontend-focused developer who enjoys turning ideas into clean, responsive experiences. Below are a few projects I’m proud of.</p>
-      <div class="cta">
-        <a class="btn primary" href="#projects">View Projects →</a>
-        <a class="btn ghost" href="mailto:you@example.com">Email Me</a>
+    <!-- Hero -->
+    <section class="hero" aria-label="Intro">
+      <div>
+        <h1><span class="hello">HELLO,</span> I am Arda</h1>
+        <p class="role">Visual and Digital Designer</p>
+        <p class="blurb">I design websites, visual imagery for clients, social media posts, advertising assets, and user interfaces. My goal is clear communication with strong aesthetics.</p>
+        <div class="hero-actions" aria-label="Downloads">
+          <a class="btn primary" href="cv.pdf" download>Download CV →</a>
+        <a class="btn primary" href="mailto:a_yurdakul@icloud.com">E-Mail Me</a>
+          </div>
       </div>
+      <aside class="hero-media" aria-label="Hero media">
+        <video class="hero-video" autoplay loop muted playsinline poster="hero-poster.jpg">
+          <source src="hero.webm" type="video/webm" />
+          <source src="hero.mp4" type="video/mp4" />
+          <img src="GIF1.gif" alt="Showreel preview" />
+        </video>
+      </aside>
     </section>
 
-    <section id="projects">
-      <p class="section-title">Projects</p>
+    <!-- Project Cards (jump links to sections below) -->
+    <section id="projects" class="section" aria-label="Projects">
+      <h2>Projects</h2>
       <div class="grid">
-        <!-- Project Card 1 -->
-        <article class="card" aria-label="Project One">
-          <div class="thumb">Project Screenshot</div>
-          <h3>Project One</h3>
-          <p>Short one-liner about what this project does and why it’s cool.</p>
-          <div class="tags">
-            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
-          </div>
-          <div class="actions">
-            <a class="btn" href="#" target="_blank" rel="noopener">Live Demo</a>
-            <a class="btn" href="#" target="_blank" rel="noopener">Source Code</a>
-          </div>
+        <article class="card" aria-label="Piston Route">
+          <a href="#project1" style="display:block">
+            <div class="thumb"><img src="project1.1.jpg" alt="Piston Route thumbnail" onerror="this.onerror=null;this.src='project1.1.png'"/></div>
+            <div class="content"><h3>Piston Route</h3><p>Movement, circulation, and sectional space.</p></div>
+          </a>
         </article>
-
-        <!-- Project Card 2 -->
-        <article class="card" aria-label="Project Two">
-          <div class="thumb">Project Screenshot</div>
-          <h3>Project Two</h3>
-          <p>Brief description highlighting your role and the results achieved.</p>
-          <div class="tags">
-            <span class="tag">API</span><span class="tag">UI</span><span class="tag">Performance</span>
-          </div>
-          <div class="actions">
-            <a class="btn" href="#" target="_blank" rel="noopener">Live Demo</a>
-            <a class="btn" href="#" target="_blank" rel="noopener">Source Code</a>
-          </div>
+        <article class="card" aria-label="Kadıköy Art Campus">
+          <a href="#project2" style="display:block">
+            <div class="thumb"><img src="project2.1.jpg" alt="Kadıköy Art Campus thumbnail" onerror="this.onerror=null;this.src='project2.1.png'"/></div>
+            <div class="content"><h3>Kadıköy Art Campus</h3><p>Campus life, planning, and volumes.</p></div>
+          </a>
         </article>
-
-        <!-- Project Card 3 -->
-        <article class="card" aria-label="Project Three">
-          <div class="thumb">Project Screenshot</div>
-          <h3>Project Three</h3>
-          <p>Summarize the problem solved, tech used, and outcome in one sentence.</p>
-          <div class="tags">
-            <span class="tag">Accessibility</span><span class="tag">SEO</span><span class="tag">UX</span>
-          </div>
-          <div class="actions">
-            <a class="btn" href="#" target="_blank" rel="noopener">Live Demo</a>
-            <a class="btn" href="#" target="_blank" rel="noopener">Source Code</a>
-          </div>
+        <article class="card" aria-label="Street Art Museum">
+          <a href="#project3" style="display:block">
+            <div class="thumb"><img src="project3.1.jpg" alt="Street Art Museum thumbnail" onerror="this.onerror=null;this.src='project3.1.png'"/></div>
+            <div class="content"><h3>Street Art Museum</h3><p>Unconventional museum with garden.</p></div>
+          </a>
         </article>
       </div>
     </section>
 
-    <section id="skills">
-      <p class="section-title">Skills</p>
-      <h2 class="h2">Tools & Technologies</h2>
-      <p class="lead">A snapshot of what I work with most. Replace the labels and progress to reflect your real strengths.</p>
-      <div class="skills">
-        <div class="skill"><span>HTML</span><div class="bar" role="img" aria-label="HTML proficiency"><span style="width: 90%"></span></div></div>
-        <div class="skill"><span>CSS</span><div class="bar" role="img" aria-label="CSS proficiency"><span style="width: 80%"></span></div></div>
-        <div class="skill"><span>JavaScript</span><div class="bar" role="img" aria-label="JavaScript proficiency"><span style="width: 75%"></span></div></div>
-        <div class="skill"><span>Accessibility</span><div class="bar" role="img" aria-label="Accessibility proficiency"><span style="width: 70%"></span></div></div>
-        <div class="skill"><span>Git</span><div class="bar" role="img" aria-label="Git proficiency"><span style="width: 65%"></span></div></div>
-        <div class="skill"><span>Performance</span><div class="bar" role="img" aria-label="Performance proficiency"><span style="width: 60%"></span></div></div>
-      </div>
+    <!-- Project 1 Detail -->
+    <section id="project1" class="section project-detail" aria-label="Piston Route">
+      <h2>Piston Route</h2>
+      <p class="lead">Overpass & circulation concept exploring movement, sectional space, and route choreography through layered paths.</p>
+      <div class="project-hero"><img src="project1.1.jpg" alt="Piston Route hero" onerror="this.onerror=null;this.src='project1.1.png'"/></div>
+      <div class="auto-gallery" data-gallery-prefix="project1." data-start="1" data-limit="99" data-alt-prefix="Piston Route "></div>
     </section>
 
-    <section id="about">
-      <p class="section-title">About</p>
-      <h2 class="h2">A bit about me</h2>
-      <p class="lead">Write a short paragraph about your background, what you enjoy building, and what you’re looking for. Keep it friendly and specific. Mention a recent project or learning goal.</p>
+    <!-- Project 2 Detail -->
+    <section id="project2" class="section project-detail" aria-label="Kadıköy Art Campus">
+      <h2>Kadıköy Art Campus</h2>
+      <p class="lead">Concept for a public art campus focused on studio life, circulation, and outdoor gathering—linking planning, volume studies, and program.</p>
+      <div class="project-hero"><img src="project2.1.jpg" alt="Kadıköy Art Campus hero" onerror="this.onerror=null;this.src='project2.1.png'"/></div>
+      <div class="auto-gallery" data-gallery-prefix="project2." data-start="1" data-limit="99" data-alt-prefix="Kadıköy "></div>
     </section>
 
-    <section id="contact">
-      <p class="section-title">Contact</p>
-      <div class="contact">
-        <article class="card">
-          <h3>Let’s work together</h3>
-          <p>Best way to reach me is email. You can also find me on these platforms:</p>
-          <ul>
-            <li>Email: <a href="mailto:you@example.com">you@example.com</a></li>
-            <li>GitHub: <a href="https://github.com/yourusername" target="_blank" rel="noopener">@yourusername</a></li>
-            <li>LinkedIn: <a href="#" target="_blank" rel="noopener">Your Name</a></li>
-          </ul>
-        </article>
-        <aside class="card">
-          <h3>Resume</h3>
-          <p>Optionally link your PDF resume here.</p>
-          <a class="btn" href="#" target="_blank" rel="noopener">Download Resume</a>
-        </aside>
+    <!-- Project 3 Detail -->
+    <section id="project3" class="section project-detail" aria-label="Street Art Museum">
+      <h2>Street Art Museum</h2>
+      <p class="lead">Three-story museum and garden exploring unconventional exhibition flows and outdoor/indoor interplay.</p>
+      <div class="project-hero"><img src="project3.1.jpg" alt="Street Art Museum hero" onerror="this.onerror=null;this.src='project3.1.png'"/></div>
+      <div class="auto-gallery" data-gallery-prefix="project3." data-start="1" data-limit="99" data-alt-prefix="Museum "></div>
+    </section>
+
+    <!-- Personal Work / Sketches (optional) -->
+    <section id="sketches" class="section project-detail" aria-label="Sketches & Personal Work">
+      <h2>Personal Work</h2>
+      <p class="lead">A growing gallery of sketches and visual experiments.</p>
+      <div class="auto-gallery" data-gallery-prefix="sketch1." data-start="1" data-limit="99" data-alt-prefix="Sketch "></div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section contact" aria-label="Contact">
+      <h2>Contact</h2>
+      <p>Reach me at <a href="mailto:a_yurdakul@icloud.com">a_yurdakul@icloud.com</a>.</p>
+      <div class="actions">
+        <a class="btn primary" href="cv.pdf" download>Download CV →</a>
+        <a class="btn" href="#home">Back to top ↑</a>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="container">
-      <small>© <span id="year"></span> Your Name. Built with plain HTML/CSS/JS. Hosted on GitHub Pages.</small>
+      <small>© <span id="year"></span> Arda Yurdakul · Visual & Digital Designer</small>
     </div>
   </footer>
 
+  <!-- Auto Gallery Builder (works with root-level files) -->
   <script>
-    // Update year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // (Optional) Track outbound clicks — minimal example
-    document.querySelectorAll('a[target="_blank"]').forEach(a => {
-      a.addEventListener('click', () => console.log('Outbound →', a.href));
-    });
+    (function(){
+      function tryLoad(src){return new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>resolve(src);img.onerror=reject;img.src=src;});}
+      async function findExisting(prefix,i){const b=prefix+i;try{return await tryLoad(b+'.jpg')}catch(e){}try{return await tryLoad(b+'.png')}catch(e){}return null}
+      async function build(el){const p=el.dataset.galleryPrefix,s=+el.dataset.start||1,l=+el.dataset.limit||99;let n=0;
+        for(let i=s;i<=l;i++){const src=await findExisting(p,i);if(!src){if(n>0)break;else continue}
+          const img=document.createElement('img');img.loading='lazy';img.alt=(el.dataset.altPrefix||'Image ')+i;img.src=src;el.appendChild(img);n++;}}
+      document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('.auto-gallery[data-gallery-prefix]').forEach(build)});
+    })();
   </script>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
 </html>
